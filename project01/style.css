@@ -48,11 +48,20 @@ ul#menu_button_list li {
 	width:100px;
 	display:inline block;
 	float:left;
-	margin-top:10px;
 }
 
 ul#menu_button_list li a {
 	color:white;
 	font-style:normal;
 	font-weight:bold;
+	text-decoration:none;
+	display:block;
+	height:inherit;
+	line-height:2.5em;
+}
+
+div#main_body {
+	background-color:white;
+	height:500px;
+	width:inherit;
 }

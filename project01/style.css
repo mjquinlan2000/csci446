@@ -11,6 +11,16 @@ h1, p {
 	padding:5px 5px 0px 5px;
 }
 
+h2 {
+	margin:0;
+	padding:10px;
+}
+
+h3 {
+	margin:0;
+	padding:0;
+}
+
 div#body_center {
 	margin-left:auto;
 	margin-right:auto;
@@ -62,6 +72,23 @@ ul#menu_button_list li a {
 
 div#main_body {
 	background-color:white;
-	height:500px;
+	height:225px;
 	width:inherit;
+}
+
+table#feelings_table {
+	padding:10px;
+}
+
+div#left_container {
+	float:left;
+}
+
+div#right_container {
+	display:inline;
+	float:right;
+	width:300px;
+	height:75px;
+	background-color:#d8d8d8;
+	margin:10px;
 }

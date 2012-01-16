@@ -3,12 +3,21 @@
 <head>
   	<title>Life Figure-Outer Application</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<script type="text/javascript">
+		function alertIfBlank(input)
+		{
+			if(input.length == 0)
+			{
+				alert("Surely you feel something!");
+			}
+		}
+	</script>
 </head>
 
 <body>
 	<div id="body_center">
 		<div id="body_header">
-			<h1>The Magic Life Figure-Outer!</h1>
+			<h1 id="heading">The Magic Life Figure-Outer!</h1>
 			<p style="color:gray; padding:0px 5px; font-size:.85em">Figuring out your life for you, so you don't have to...</p>
 			<div id="header_menu">
 				<ul id="menu_button_list">
@@ -43,7 +52,7 @@
 					<table id="feelings_table">
 						<tr>
 							<td>How are you feeling?</td>
-							<td><input type="text" name="user_feeling"/></td>
+							<td><input type="text" name="user_feeling" id="user_input_feeling"/></td>
 						</tr>
 						<tr>
 							<td>How would you like to feel?</br>(choose all that apply)</td>
@@ -56,7 +65,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><input type="submit" value="Feel me!"/></td>
+							<td><input type="submit" value="Feel me!" onclick="alertIfBlank(document.getElementById('user_input_feeling').value)"/></td>
 						</tr>
 					</table>	
 				</form>

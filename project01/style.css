@@ -1,7 +1,7 @@
 html, body {
 	margin:0;
 	padding:0;
-	background-color:gray;
+	background-color:#aaaaaa;
 	text-align:center;
 	font-family:"Arial",arial,sans-serif;
 }
@@ -28,12 +28,14 @@ div#body_center {
 	width:900px;
 	height:auto;
 	text-align:left;
+	border-style:solid;
+	border-width:1px;
 }
 
 div#body_header {
 	height:auto;
 	width:inherit;
-	background-color:#d8d8d8;
+	background-color:#cccccc;
 }
 
 div#header_menu {
@@ -89,6 +91,13 @@ div#right_container {
 	float:right;
 	width:300px;
 	height:75px;
-	background-color:#d8d8d8;
+	background-color:#f0f0ff;
 	margin:10px;
+}
+
+div#copyright {
+	width:inherit;
+	height:35px;
+	background-color:#f0f0f0;
+	text-align:center;
 }

@@ -72,6 +72,11 @@ ul#menu_button_list li a {
 	line-height:2.5em;
 }
 
+ul#menu_button_list li a:hover {
+	color:black;
+	background-color:white;
+}
+
 div#main_body {
 	background-color:white;
 	height:225px;

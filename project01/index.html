@@ -7,15 +7,7 @@
 	<meta content="The Life-Figure-Outer tells you where you stand in life based upon how you feel. It is the most versatile web application that will give your life meaning and purpose" name="description"/>
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<script type="text/javascript">
-		function alertIfBlank(input)
-		{
-			if(input.length == 0)
-			{
-				alert("Surely you feel something!");
-			}
-		}
-	</script>
+	<script type="text/javascript" src="scripts.js"></script>
 </head>
 
 <body>
@@ -52,7 +44,7 @@
 		<div id="main_body">
 			<div id="left_container">
 			<h2>Lorem Ipsum Dolor Sit Amet.</h2>
-				<form name="feelings_form" action="JavaScript:void()" method="get">
+				<form name="feelings_form" action="JavaScript:void()" method="get" onsubmit="return validate()">
 					<table id="feelings_table">
 						<tr>
 							<td>How are you feeling?</td>
@@ -69,7 +61,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><input type="submit" value="Feel me!" onclick="alertIfBlank(document.getElementById('user_input_feeling').value)"/></td>
+							<td><input type="submit" value="Feel me!"/></td>
 						</tr>
 					</table>	
 				</form>

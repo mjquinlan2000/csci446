@@ -7,7 +7,11 @@ class Player
 		if warrior.feel.empty?
 			warrior.walk!
 		else
-			warrior.attack!
+			if warrior.feel.captive?
+				warrior.rescue!
+			else
+				warrior.attack!
+			end
 		end
 	end
 	@old_hp = warrior.health

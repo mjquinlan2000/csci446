@@ -1,5 +1,15 @@
 class Player
+	@old_hp = 20
   def play_turn(warrior)
-    # add your code here
+	if warrior.health < 20 and warrior.feel.empty? and @old_hp <= warrior.health
+		warrior.rest!
+	else
+		if warrior.feel.empty?
+			warrior.walk!
+		else
+			warrior.attack!
+		end
+	end
+	@old_hp = warrior.health
   end
 end

@@ -1,25 +1,29 @@
 class Player
-	@old_hp = 20
-	@back = false
-	@resting_at_wall = false
+	def initialize()
+		@old_hp = 20
+		@back = false
+		@resting_at_wall = false
+		@capitve_released = false
+		@count = 0
+		@first = true
+		@second = true
+	end
   def play_turn(warrior)
-	if warrior.feel.wall?
-		if warrior.health < 20
-			warrior.rest!
-		else
-			warrior.pivot!
-			@back = false
-		end
+	ahead = warrior.look
+	if @first == true
+		warrior.walk!
+		@first = false
 	else
-		if warrior.feel.empty?
-			if warrior.health < 10 and @back == false
-				warrior.pivot!
-				@back = true
+		if @second == true
+			warrior.rescue!
+			@second = false
+		else
+			if @count < 2
+				warrior.shoot!
+				@count = @count + 1
 			else
 				warrior.walk!
 			end
-		else
-			warrior.attack!
 		end
 	end
 	@old_hp = warrior.health

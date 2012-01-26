@@ -47,4 +47,13 @@ class ProductTest < ActiveSupport::TestCase
       assert new_product(bad).invalid?, "#{name} shouldn't be valid"
     end
   end
+  
+  test "product is not valid without a unique name" do
+    product = Product.new(:title => products(:ruby).title,
+                          :description => "some description",
+                          :price => 44.34,
+                          :image_url => "picture.jpg")
+    assert !product.save
+    assert_equal "has already been taken", product.errors[:title].join('; ')
+  end
 end

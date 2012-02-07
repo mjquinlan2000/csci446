@@ -87,4 +87,5 @@ class ProductsController < ApplicationController
       format.atom
       format.json { render json: @product }
     end
+  end
 end

@@ -9,18 +9,8 @@ class User < ActiveRecord::Base
   
   validate :password_must_be_present
   
-  private
-  
-  def password_must_be_present
-    errors.add(:password, "Missing password") unless hashed_password.present?
-  end
-  
   def User.encrypt_password(password, salt)
     Digest::SHA2.hexdigest(password + "wibble" + salt)
-  end
-  
-  def generate_salt
-    self.salt = self.object_id.to_s + rand.to_s
   end
   
   def password=(password)
@@ -38,5 +28,15 @@ class User < ActiveRecord::Base
 	user
       end
     end
+  end
+  
+  private
+  
+  def password_must_be_present
+    errors.add(:password, "Missing password") unless hashed_password.present?
+  end
+  
+  def generate_salt
+    self.salt = self.object_id.to_s + rand.to_s
   end
 end

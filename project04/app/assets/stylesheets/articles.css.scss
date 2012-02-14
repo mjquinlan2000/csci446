@@ -18,3 +18,16 @@ table#article_index th, td {
 table#article_index th {
   background-color:grey;
 }
+
+div#body h1, p {
+  width:50%;
+  margin:0;
+  padding:0;
+  display:inline;
+}
+
+div#add_box {
+  display:inline block;
+  margin-right:500px;
+  float:right;
+}

@@ -1,5 +1,9 @@
 <h1>All the World's Articles</h1>
 
+<div id="add_box">
+  <%= link_to image_tag('/assets/Add.png', :size => '30x30') + "Create a New Article", new_article_path, :title => 'Create Article' %>
+</div>
+
 <table id="article_index">
   <tr>
     <th>Title</th>

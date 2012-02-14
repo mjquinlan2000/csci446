@@ -17,13 +17,11 @@
     <td><%= article.author %></td>
     <td><%= article.content.truncate(80) %></td>
     <td><%= article.created_at %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to image_tag('/assets/Search.png'), article, :title => "View" %></td>
+    <td><%= link_to image_tag('/assets/Pencil.png'), edit_article_path(article), :title => "Edit" %></td>
+    <td><%= link_to image_tag('/assets/Trash.png'), article, confirm: 'Are you sure?', method: :delete, :title => "Delete" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Article', new_article_path %>

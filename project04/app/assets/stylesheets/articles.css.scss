@@ -1,3 +1,20 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table#article_index {
+  border-style:solid;
+  border-width:2px;
+  border-color:black;
+  border-collapse:collapse;
+}
+
+table#article_index th, td {
+  border-left:solid;
+  border-right:solid;
+  border-width:2px;
+  border-color:black;
+}
+
+table#article_index th {
+  background-color:grey;
+}

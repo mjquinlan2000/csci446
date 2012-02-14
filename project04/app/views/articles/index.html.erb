@@ -1,10 +1,11 @@
-<h1>Listing articles</h1>
+<h1>All the World's Articles</h1>
 
 <table>
   <tr>
     <th>Title</th>
-    <th>Author</th>
-    <th>Content</th>
+    <th>Author Name</th>
+    <th>Body</th>
+    <th>Creation Date</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +15,8 @@
   <tr>
     <td><%= article.title %></td>
     <td><%= article.author %></td>
-    <td><%= article.content %></td>
+    <td><%= article.content.truncate(80) %></td>
+    <td><%= article.created_at %></td>
     <td><%= link_to 'Show', article %></td>
     <td><%= link_to 'Edit', edit_article_path(article) %></td>
     <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>

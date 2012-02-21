@@ -1,4 +1,14 @@
-<h1>New article</h1>
+<% content_for :subtext do %>
+<p>... not just for the country of Spain</p>
+<% end %>
+
+<div id="show_menu">
+  <ul>
+    <li id="menu_item"><%= link_to image_tag('/assets/Back.png', :size => '30x30') + "Back", articles_path, :title => "Go back to articles",%>
+  </ul>
+</div>
+
+<h1>Creating a New Article</h1>
 
 <%= render 'form' %>
 

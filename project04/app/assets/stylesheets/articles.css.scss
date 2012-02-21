@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 table#article_index {
+  width:100%;
   border-style:solid;
   border-width:2px;
   border-color:black;
@@ -19,15 +20,20 @@ table#article_index th {
   background-color:grey;
 }
 
-div#body h1, p {
-  width:50%;
-  margin:0;
-  padding:0;
+div#body h1#index_header {
   display:inline;
 }
 
-div#add_box {
-  display:inline block;
-  margin-right:500px;
-  float:right;
+div#create_container a{
+  position:absolute;
+  right:50px;
+}
+
+div#create_container {
+  height:50px;
+}
+
+table#article_index td#icons {
+  background-color:white;
+  border-style:none;
 }

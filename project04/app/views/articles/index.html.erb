@@ -1,17 +1,16 @@
-<h1>All the World's Articles</h1>
-
-<div id="add_box">
-  <%= link_to image_tag('/assets/Add.png', :size => '30x30') + "Create a New Article", new_article_path, :title => 'Create Article' %>
+<div id="create_container">
+  <h1 id="index_header">All the World's Articles</h1>
+  <%= link_to image_tag('/assets/Add.png', :size => '30x30') + "Create a New Article", 
+  new_article_path, :title => 'Create Article' %>
 </div>
 
+<%if @articles.count > 0 %>
 <table id="article_index">
   <tr>
     <th>Title</th>
     <th>Author Name</th>
     <th>Body</th>
     <th>Creation Date</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -21,11 +20,14 @@
     <td><%= article.author %></td>
     <td><%= article.content.truncate(80) %></td>
     <td><%= article.created_at %></td>
-    <td><%= link_to image_tag('/assets/Search.png'), article, :title => "View" %></td>
-    <td><%= link_to image_tag('/assets/Pencil.png'), edit_article_path(article), :title => "Edit" %></td>
-    <td><%= link_to image_tag('/assets/Trash.png'), article, confirm: 'Are you sure?', method: :delete, :title => "Delete" %></td>
+    <td id="icons"><%= link_to image_tag('/assets/Search.png'), article, :title => "View" %>
+    <%= link_to image_tag('/assets/Pencil.png'), edit_article_path(article), :title => "Edit" %>
+    <%= link_to image_tag('/assets/Trash.png'), article, confirm: 'Are you sure?', method: :delete, :title => "Delete" %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
+<p><%= pluralize(@articles.count, "article")%></p>
+<% else %>
+<h3>There are currently no articles to display</h3>
+<% end %>

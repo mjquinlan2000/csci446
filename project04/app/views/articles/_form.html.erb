@@ -10,20 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <table id="edit_table">
+    <tr>
+      <td class="edit_labels"><%= f.label :title %></td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td class="edit_labels"><%= f.label :author %></td>
+      <td><%= f.text_field :author %></td>
+    </tr>
+    <tr>
+      <td class="edit_labels"><%= f.label "Body" %></td>
+      <td><%= f.text_area :content %></td>
+    </tr>
+    <tr>
+      <td class="edit_labels"></td>
+      <td><%= f.submit "Save Changes" %></td>
+    </tr>
+  </table>
 <% end %>

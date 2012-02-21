@@ -1,6 +1,10 @@
-<h1>Editing article</h1>
+<div id="show_menu">
+  <ul>
+  <li class="menu_item"><%= link_to image_tag('/assets/Back.png', :size => '30x30') + "Back", articles_path,
+    :title => "Go back to articles" %></li
+  </ul>
+</div>
+
+<h1>Editing <%= @article.title %></h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>

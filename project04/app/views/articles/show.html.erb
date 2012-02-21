@@ -5,7 +5,7 @@
 <p>By <%= @article.author %></p>
 
 <% @article.content.each_line do |line| %>
-<p class="body_paragraph"><%= line %></p>
+<p class="body_paragraph"><%= line.chomp %></p>
 <% end %>
 
 

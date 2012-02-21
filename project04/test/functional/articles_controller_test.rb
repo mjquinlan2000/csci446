@@ -21,7 +21,7 @@ class ArticlesControllerTest < ActionController::TestCase
       post :create, article: @article.attributes
     end
 
-    assert_redirected_to article_path(assigns(:article))
+    assert_redirected_to articles_path
   end
 
   test "should show article" do

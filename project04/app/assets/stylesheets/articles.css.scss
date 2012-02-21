@@ -49,3 +49,19 @@ p.body_paragraph {
   text-indent:1.5em;
   text-align:justify;
 }
+
+div#show_menu {
+  display:table-row;
+  width:100%;
+  text-align:center;
+}
+
+div#show_menu ul {
+  list-style:none;
+}
+
+li.menu_item {
+  display:block;
+  float:left;
+  width:15em;
+}

@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
+    store_last_page
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+    store_last_page
   end
 
   # POST /articles
@@ -81,5 +83,9 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url }
       format.json { head :no_content }
     end
+  end
+  
+  def store_last_page
+    session[:last_article_page] = request.env['HTTP_REFERER'] || articles_path
   end
 end

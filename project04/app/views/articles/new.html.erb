@@ -4,7 +4,7 @@
 
 <div id="show_menu">
   <ul>
-    <li id="menu_item"><%= link_to image_tag('/assets/Back.png', :size => '30x30') + "Back", articles_path, :title => "Go back to articles",%>
+    <li id="menu_item"><%= link_to image_tag('/assets/Back.png', :size => '30x30') + "Back", session[:last_article_page], :title => "Go back to articles",%>
   </ul>
 </div>
 

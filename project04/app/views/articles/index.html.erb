@@ -5,29 +5,31 @@
 </div>
 
 <%if @articles.count > 0 %>
-<table id="article_index">
-  <tr>
-    <th>Title</th>
-    <th>Author Name</th>
-    <th>Body</th>
-    <th>Creation Date</th>
-    <th></th>
-  </tr>
+<div id="scroll_window">
+  <table id="article_index">
+    <tr>
+      <th>Title</th>
+      <th>Author Name</th>
+      <th>Body</th>
+      <th>Creation Date</th>
+      <th></th>
+    </tr>
 
-<% @articles.each do |article| %>
-<tr <%= if article.id.odd?
+  <% @articles.each do |article| %>
+  <tr <%= if article.id.odd?
           'style=background-color:#dfdfdf;'
         end%>>
-    <td><%= article.title %></td>
-    <td><%= article.author %></td>
-    <td><%= article.content.truncate(80) %></td>
-    <td><%= article.created_at %></td>
-    <td id="icons"><%= link_to image_tag('/assets/Search.png', :size => '30x30'), article, :title => "View" %>
-    <%= link_to image_tag('/assets/Pencil.png', :size => '30x30'), edit_article_path(article), :title => "Edit" %>
-    <%= link_to image_tag('/assets/Trash.png', :size => '30x30'), article, confirm: 'Are you sure?', method: :delete, :title => "Delete" %></td>
+      <td><%= article.title %></td>
+      <td><%= article.author %></td>
+      <td><%= article.content.truncate(80) %></td>
+      <td><%= article.created_at %></td>
+      <td id="icons"><%= link_to image_tag('/assets/Search.png', :size => '30x30'), article, :title => "View" %>
+      <%= link_to image_tag('/assets/Pencil.png', :size => '30x30'), edit_article_path(article), :title => "Edit" %>
+      <%= link_to image_tag('/assets/Trash.png', :size => '30x30'), article, confirm: 'Are you sure?', method: :delete, :title => "Delete" %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
+</div>
 
 <p><%= pluralize(@articles.count, "article")%></p>
 <% else %>

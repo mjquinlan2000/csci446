@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 table#article_index {
-  width:100%;
+  width:inherit;
   border-style:solid;
   border-width:2px;
   border-color:black;
@@ -36,4 +36,10 @@ div#create_container {
 table#article_index td#icons {
   background-color:white;
   border-style:none;
+}
+
+div#scroll_window {
+  width:100%;
+  max-height:500px;
+  overflow:auto;
 }

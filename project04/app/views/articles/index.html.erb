@@ -22,9 +22,9 @@
     </tr>
 
   <% @articles.each do |article| %>
-  <tr <%= if num_articles.odd?
-          'style=background-color:#dfdfdf;'
-        end %>>
+  <tr <% if num_articles.odd? %>
+          style="background-color:#dfdfdf;"
+        <% end %>>
         <% num_articles = num_articles + 1 %>
       <td><%= article.title %></td>
       <td><%= article.author %></td>

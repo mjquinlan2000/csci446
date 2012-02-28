@@ -7,16 +7,24 @@ table#article_index {
   border-width:2px;
   border-color:black;
   border-collapse:collapse;
+  width:100%;
 }
 
-table#article_index th, td {
+thead th, td {
   border-left:solid;
   border-right:solid;
   border-width:2px;
   border-color:black;
 }
 
-table#article_index th {
+tbody th, td {
+  border-left:solid;
+  border-right:solid;
+  border-width:2px;
+  border-color:black;
+}
+
+thead th {
   background-color:grey;
 }
 
@@ -33,15 +41,9 @@ div#create_container {
   height:50px;
 }
 
-table#article_index td#icons {
+tbody td#icons {
   background-color:white;
   border-style:none;
-}
-
-div#scroll_window {
-  width:100%;
-  max-height:450px;
-  overflow:auto;
 }
 
 p.body_paragraph {
@@ -79,4 +81,9 @@ td.edit_labels {
   width:100px;
   padding:0;
   margin:0;
+}
+
+tbody#article_index_body {
+  overflow:auto;
+  max-height:450px;
 }

@@ -9,6 +9,8 @@
   new_article_path, :title => 'Create Article' %>
 </div>
 
+<%= will_paginate @articles %>
+
 <%if @articles.count > 0 %>
 <% num_articles = 1 %>
 <table id="article_index">
@@ -41,7 +43,7 @@
 
 <p><%= pluralize(@articles.count, "article")%></p>
 
-<% will_paginate @articles %>
+<%= will_paginate @articles %>
 
 <% else %>
 <h3>There are currently no articles to display</h3>

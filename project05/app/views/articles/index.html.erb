@@ -21,11 +21,6 @@
 	      <th></th>
 		</tr>
 	</thead>
-	<tfoot>
-		<tr>
-			<td colspan="5"><%= pluralize(@articles.count, "article") %></td>
-		</tr>
-	</tfoot>
 	<tbody id="article_index_body">
 	  <% @articles.each do |article| %>
 	  <tr <% if num_articles.odd? %>
@@ -43,6 +38,11 @@
 	  <% end %>
 	</tbody>
 </table>
+
+<p><%= pluralize(@articles.count, "article")%></p>
+
+<% will_paginate @articles %>
+
 <% else %>
 <h3>There are currently no articles to display</h3>
 <% end %>

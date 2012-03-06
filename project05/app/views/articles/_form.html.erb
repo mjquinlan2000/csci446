@@ -17,11 +17,11 @@
       <td><%= f.text_field :title %></td>
     </tr>
     <tr>
-      <td class="edit_labels"><%= f.label :author %></td>
-      <td><%= f.text_field :author %></td>
+      <td class="edit_labels"><%= f.label :author_id, "Author" %></td>
+      <td><%= f.collection_select :author_id, Author.all, :id, :name, :prompt => "select this..." %></td>
     </tr>
     <tr>
-      <td class="edit_labels"><%= f.label "Body" %></td>
+      <td class="edit_labels"><%= f.label :content, "Body" %></td>
       <td><%= f.text_area :content %></td>
     </tr>
     <tr>

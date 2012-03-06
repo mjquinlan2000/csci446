@@ -1,3 +1,5 @@
 class Author < ActiveRecord::Base
-    validates :name, :presence => true, :uniqueness => true, :exclusion => { :in => "Pat", :message => "The name Pat is not allowed" }
+  has_many :articles, :dependent => :delete_all
+  
+  validates :name, :presence => true, :uniqueness => true, :exclusion => { :in => "Pat", :message => "The name Pat is not allowed" }
 end

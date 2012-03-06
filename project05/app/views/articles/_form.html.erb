@@ -1,0 +1,32 @@
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <table id="edit_table">
+    <tr>
+      <td class="edit_labels"><%= f.label :title %></td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td class="edit_labels"><%= f.label :author %></td>
+      <td><%= f.text_field :author %></td>
+    </tr>
+    <tr>
+      <td class="edit_labels"><%= f.label "Body" %></td>
+      <td><%= f.text_area :content %></td>
+    </tr>
+    <tr>
+      <td class="edit_labels"></td>
+      <td><%= f.submit "Save Changes" %></td>
+    </tr>
+  </table>
+<% end %>

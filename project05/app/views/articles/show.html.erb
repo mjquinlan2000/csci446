@@ -1,0 +1,22 @@
+<% content_for :subtext do %>
+<p>... what's "Articl" in Spanish anyway?</p>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<div id="show_menu">
+  <ul>
+    <li class="menu_item"><%= link_to image_tag('/assets/Back.png', :size => '30x30') + " List All Articles", articles_path, :title => "List articles" %></li>
+    <li class="menu_item"><%= link_to image_tag('/assets/Pencil.png', :size => '30x30') + " Edit this article", edit_article_path(@article), :title => "Edit"%></li>
+    <li class="menu_item"><%= link_to image_tag('/assets/Trash.png', :size => '30x30') + " Delete", @article, :method => :delete,
+    :confirm => "Are you sure you want to delete this?", :title => "Delete this article", :notice => "Article was successfully deleted"%></li>
+    <li class="menu_item"><%= link_to image_tag('/assets/Mail.png', :size => '30x30') + " E-mail", "www...", :title => "Mail this article" %></li>
+  </ul>
+</div>
+
+<h1><%= @article.title %></h1>
+
+<p>By <%= @article.author %>. <%= pluralize(@article.num_updates, "edit") %> since <%= @article.created_at.strftime("%b %d, %Y")%></p>
+
+<% @article.content.each_line do |line| %>
+<p class="body_paragraph"><%= line.chomp %></p>
+<% end %>

@@ -1,0 +1,26 @@
+- content_for :stylesheet_links do
+  = stylesheet_link_tag "article_table_styles", :media => "all"
+- num_articles = 0
+%table#article_index
+  %thead
+    %tr
+      %th Title
+      %th Author Name
+      %th Body
+      %th Creation Date
+      %th
+  %tbody#article_index_body
+    - articles.each do |article|
+      <tr
+      - if num_articles.odd?
+        style="background-color:#dfdfdf;"
+      >
+      - num_articles = num_articles + 1
+      %td= article.title
+      %td= link_to article.author.name, author_path(article.author)
+      %td= article.content.truncate(100)
+      %td= article.created_at.strftime("%b %d, %Y %I:%M %p")
+      %td.icons
+        = link_to image_tag('/assets/Search.png', :size => '30x30'), article, :title => "View"
+        = link_to image_tag('/assets/Pencil.png', :size => '30x30'), edit_article_path(article), :title => "Edit"
+        = link_to image_tag('/assets/Trash.png', :size => '30x30'), article, confirm: 'Are you sure?', method: :delete, :title => "Delete"

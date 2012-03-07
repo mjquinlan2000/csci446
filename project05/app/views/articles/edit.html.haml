@@ -1,0 +1,13 @@
+- content_for :subtext  do
+  %p ... my cousin works for Bit.ly
+- content_for :stylesheet_links do
+  = stylesheet_link_tag "articles", :media => "all"
+#show_menu
+  %ul
+    %li.menu_item
+      = link_to image_tag('/assets/Back.png', :size => '30x30') + "Back", session[:last_article_page], |
+        :title => "Go back to articles"                                                                |
+      </li
+%h1
+  Editing "#{@article.title}"
+= render 'form'

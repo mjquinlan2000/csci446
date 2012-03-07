@@ -2,30 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div#body h1#index_header {
-  display:inline;
-}
-
-div#create_container a{
-  position:absolute;
-  right:50px;
-}
-
-div#create_container {
-  height:50px;
-}
-
 td.edit_labels {
   text-align:right;
   width:100px;
   padding:0;
   margin:0; 
-}
-
-p.body_paragraph {
-  width:600px;
-  text-indent:1.5em;
-  text-align:justify;
 }
 
 table#edit_table {

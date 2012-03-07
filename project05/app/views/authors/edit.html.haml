@@ -2,8 +2,8 @@
   %p now without preservatives
 - content_for :stylesheet_links do
   = stylesheet_link_tag "authors", :media => "all"
+#show_menu
+  %ul
+    %li.menu_item= link_to image_tag('/assets/Back.png', :size => '30x30') + "Back", session[:last_author_page], :title => "Go back to previous page"
 %h1 Editing author
 = render 'form'
-= link_to 'Show', @author
-|
-\#{link_to 'Back', authors_path}

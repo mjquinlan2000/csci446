@@ -2,20 +2,29 @@
   %p get ready for articl.es: the movie
 - content_for :stylesheet_links do
   = stylesheet_link_tag "authors", :media => "all"
+  = stylesheet_link_tag "general_table", :medial => "all"
 #show_menu
   %ul
     %li.menu_item= link_to image_tag('/assets/Add.png', :size => '30x30') + "Create an Author", new_author_path, :title => 'Create Author'
     %li.menu_item= link_to image_tag('/assets/User.png', :size => '30x30') + "View the Articles", articles_path , :title => 'View all of the articles on this site'
 %h1 Listing authors
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-  - @authors.each do |author|
+%table#common_table
+  %thead
     %tr
+      %th Author Name
+      %th Number of Articles Published
+      %th 
+  %tbody#article_index_body
+    - num_authors = 0
+    - @authors.each do |author|
+      <tr
+      - if num_authors.odd?
+        style="background-color:#dfdfdf;"
+      >
+      - num_authors = num_authors + 1
       %td= author.name
-      %td= link_to 'Show', author
-      %td= link_to 'Edit', edit_author_path(author)
-      %td= link_to 'Destroy', author, confirm: 'Are you sure?', method: :delete
+      %td= author.articles.count
+      %td.icons
+        = link_to image_tag('/assets/Search.png', :size => '30x30'), author, :title => "View Author"
+        = link_to image_tag('/assets/Pencil.png', :size => '30x30'), edit_author_path(author), :title => "Edit Author"
+        = link_to image_tag('/assets/Trash.png', :size => '30x30'), author, confirm: 'Are you sure? All articles published by this author will be deleted as well', method: :delete, :title => "Delete Author"

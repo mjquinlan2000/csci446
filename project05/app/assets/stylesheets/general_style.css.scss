@@ -32,6 +32,9 @@ div#show_menu {
       width:15em;
       a {
         display:block;
+        &:hover {
+          background-color:#dfdfdf;
+        }
       }
     }
   }

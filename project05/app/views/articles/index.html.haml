@@ -1,13 +1,13 @@
 - content_for :subtext do
-  %p
-    \...with a name .com hipsters love</p
+  %p ...with a name .com hipsters love
 - content_for :stylesheet_links do
   = stylesheet_link_tag "articles", :media => "all"
 %p#notice= notice
-#create_container
-  %h1#index_header All the World's Articles
-  = link_to image_tag('/assets/Add.png', :size => '30x30') + "Create a New Article", |
-    new_article_path, :title => 'Create Article'                                     |
+#show_menu
+  %ul
+    %li.menu_item= link_to image_tag('/assets/Add.png', :size => '30x30') + "Create an Article", new_article_path, :title => 'Create Article'
+    %li.menu_item= link_to image_tag('/assets/User.png', :size => '30x30') + "View the Authors", authors_path, :title => 'View the people that wrote these silly things'
+%h1#index_header All the World's Articles
 = will_paginate @articles
 - if @articles.count > 0
   = render :partial => 'shared/articles_table', :locals => { :articles => @articles }

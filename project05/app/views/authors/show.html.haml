@@ -1,0 +1,8 @@
+%p#notice= notice
+%h2= @author.name
+- if @author.photo?
+  = image_tag @author.photo.url(:small)
+- if @author.articles.count > 0
+  = render :partial => 'shared/articles_table', :locals => { :articles => @author.articles }
+- else
+  %h3 There are no articles to display for this author

@@ -3,6 +3,12 @@
 - content_for :stylesheet_links do
   = stylesheet_link_tag "authors", :media => "all"
 %p#notice= notice
+#show_menu
+  %ul
+    %li.menu_item= link_to image_tag('/assets/Back.png', :size => '30x30') + " Back to authors", session[:last_author_page], :title => "List authors"
+    %li.menu_item= link_to image_tag('/assets/Pencil.png', :size => '30x30') + " Edit this author", edit_author_path(@author), :title => "Edit this author"
+    %li.menu_item= link_to image_tag('/assets/Trash.png', :size => '30x30') + " Delete", @author, :method => :delete,                                 |
+        :confirm => "Are you sure you want to delete this? All articles by this author will be deleted too", :title => "Delete this author", :notice => "Article was successfully deleted" |
 %h2= @author.name
 - if @author.photo?
   = image_tag @author.photo.url(:small)

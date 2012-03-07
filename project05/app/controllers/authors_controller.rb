@@ -14,6 +14,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1.json
   def show
     @author = Author.find(params[:id])
+    store_last_page
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +26,7 @@ class AuthorsController < ApplicationController
   # GET /authors/new.json
   def new
     @author = Author.new
+    store_last_page
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1/edit
   def edit
     @author = Author.find(params[:id])
+    store_last_page
   end
 
   # POST /authors
@@ -79,5 +82,9 @@ class AuthorsController < ApplicationController
       format.html { redirect_to authors_url }
       format.json { head :no_content }
     end
+  end
+  
+  def store_last_page
+    session[:last_author_page] = request.env['HTTP_REFERER'] || authors_path
   end
 end

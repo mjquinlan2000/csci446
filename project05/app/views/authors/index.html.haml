@@ -8,6 +8,7 @@
     %li.menu_item= link_to image_tag('/assets/Add.png', :size => '30x30') + "Create an Author", new_author_path, :title => 'Create Author'
     %li.menu_item= link_to image_tag('/assets/User.png', :size => '30x30') + "View the Articles", articles_path , :title => 'View all of the articles on this site'
 %h1 Listing authors
+= will_paginate @authors
 %table#common_table
   %thead
     %tr
@@ -28,3 +29,5 @@
         = link_to image_tag('/assets/Search.png', :size => '30x30'), author, :title => "View Author"
         = link_to image_tag('/assets/Pencil.png', :size => '30x30'), edit_author_path(author), :title => "Edit Author"
         = link_to image_tag('/assets/Trash.png', :size => '30x30'), author, confirm: 'Are you sure? All articles published by this author will be deleted as well', method: :delete, :title => "Delete Author"
+%p= pluralize(@authors.count, "author")
+= will_paginate @authors

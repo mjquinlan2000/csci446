@@ -1,32 +1,6 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-table#article_index {
-  width:inherit;
-  border-style:solid;
-  border-width:2px;
-  border-color:black;
-  border-collapse:collapse;
-  width:100%;
-}
-
-thead th, td {
-  border-left:solid;
-  border-right:solid;
-  border-width:2px;
-  border-color:black;
-}
-
-tbody th, td {
-  border-left:solid;
-  border-right:solid;
-  border-width:2px;
-  border-color:black;
-}
-
-thead th {
-  background-color:grey;
-}
 
 div#body h1#index_header {
   display:inline;
@@ -41,9 +15,11 @@ div#create_container {
   height:50px;
 }
 
-tbody td#icons {
-  background-color:white;
-  border-style:none;
+td.edit_labels {
+  text-align:right;
+  width:100px;
+  padding:0;
+  margin:0; 
 }
 
 p.body_paragraph {
@@ -52,40 +28,12 @@ p.body_paragraph {
   text-align:justify;
 }
 
-div#show_menu {
-  display:table-row;
-  width:100%;
-}
-
-div#show_menu ul {
-  list-style:none;
-}
-
-li.menu_item {
-  display:block;
-  float:left;
-  width:15em;
-  list-style:none;
-}
-
 table#edit_table {
   border-style:none;
 }
 
 table#edit_table tr td {
   border-style:none;
-}
-
-td.edit_labels {
-  text-align:right;
-  width:100px;
-  padding:0;
-  margin:0;
-}
-
-tbody#article_index_body {
-  overflow:auto;
-  max-height:450px;
 }
 
 img {

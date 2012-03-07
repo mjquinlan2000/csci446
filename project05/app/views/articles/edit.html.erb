@@ -2,6 +2,10 @@
 <p>... my cousin works for Bit.ly</p>
 <% end %>
 
+<% content_for :stylesheet_links do%>
+	<%= stylesheet_link_tag "articles", :media => "all" %>
+<% end %>
+
 <div id="show_menu">
   <ul>
   <li class="menu_item"><%= link_to image_tag('/assets/Back.png', :size => '30x30') + "Back", session[:last_article_page],

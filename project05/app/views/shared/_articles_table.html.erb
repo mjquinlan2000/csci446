@@ -1,3 +1,7 @@
+<% content_for :stylesheet_links do%>
+	<%= stylesheet_link_tag "article_table_styles", :media => "all" %>
+<% end %>
+
 <% num_articles = 0%>
 <table id="article_index">
 	<thead>
@@ -16,10 +20,10 @@
 	        <% end %>>
 	        <% num_articles = num_articles + 1 %>
 	      <td><%= article.title %></td>
-	      <td><%= article.author.name %></td>
-	      <td><%= article.content.truncate(80) %></td>
+	      <td><%= link_to article.author.name, author_path(article.author) %></td>
+	      <td><%= article.content.truncate(100) %></td>
 	      <td><%= article.created_at.strftime("%b %d, %Y %I:%M %p") %></td>
-	      <td id="icons"><%= link_to image_tag('/assets/Search.png', :size => '30x30'), article, :title => "View" %>
+	      <td class="icons"><%= link_to image_tag('/assets/Search.png', :size => '30x30'), article, :title => "View" %>
 	      <%= link_to image_tag('/assets/Pencil.png', :size => '30x30'), edit_article_path(article), :title => "Edit" %>
 	      <%= link_to image_tag('/assets/Trash.png', :size => '30x30'), article, confirm: 'Are you sure?', method: :delete, :title => "Delete" %></td>
 	  </tr>

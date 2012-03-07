@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Articl.es -- All the World's Articles (with a name .com hipsters love)</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "general_style", :media => "all" %>
+  <%= yield :stylesheet_links %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>

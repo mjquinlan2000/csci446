@@ -2,6 +2,10 @@
 <p>...with a name .com hipsters love</p
 <% end %>
 
+<% content_for :stylesheet_links do%>
+	<%= stylesheet_link_tag "articles", :media => "all" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 <div id="create_container">
   <h1 id="index_header">All the World's Articles</h1>

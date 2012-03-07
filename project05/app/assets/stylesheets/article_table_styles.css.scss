@@ -1,0 +1,23 @@
+table#article_index {
+  width:inherit;
+  border-style:solid;
+  border-width:2px;
+  border-color:black;
+  border-collapse:collapse;
+  width:100%;
+  tbody, thead {
+    th, td {
+      border-left:solid;
+      border-right:solid;
+      border-width:2px;
+      border-color:black;
+    }
+    th {
+      background-color:grey;
+    }
+    td.icons {
+      background-color:white;
+      border-style:none;  
+    }
+  }
+}

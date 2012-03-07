@@ -8,8 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+ *= require "scaffolds"
 */
 div#header {
   text-align:center;
@@ -20,4 +19,20 @@ div#header {
 div#body {
   text-align:left;
   background:white;
+}
+
+div#show_menu {
+  display:block;
+  width:100%;
+  height:35px;
+  ul {
+    list-style-type:none;
+    li.menu_item {
+      float:left;
+      width:15em;
+      a {
+        display:block;
+      }
+    }
+  }
 }

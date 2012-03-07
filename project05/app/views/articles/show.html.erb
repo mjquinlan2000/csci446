@@ -1,6 +1,11 @@
 <% content_for :subtext do %>
 <p>... what's "Articl" in Spanish anyway?</p>
 <% end %>
+
+<% content_for :stylesheet_links do%>
+	<%= stylesheet_link_tag "articles", :media => "all" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <div id="show_menu">

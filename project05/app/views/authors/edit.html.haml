@@ -1,3 +1,7 @@
+- content_for :subtext do
+  %p now without preservatives
+- content_for :stylesheet_links do
+  = stylesheet_link_tag "authors", :media => "all"
 %h1 Editing author
 = render 'form'
 = link_to 'Show', @author

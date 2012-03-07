@@ -1,3 +1,7 @@
+- content_for :subtext do
+  %p ... dominating the world one article at a time
+- content_for :stylesheet_links do
+  = stylesheet_link_tag "authors", :media => "all"
 %p#notice= notice
 %h2= @author.name
 - if @author.photo?

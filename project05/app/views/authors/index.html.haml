@@ -1,3 +1,11 @@
+- content_for :subtext do
+  %p get ready for articl.es: the movie
+- content_for :stylesheet_links do
+  = stylesheet_link_tag "authors", :media => "all"
+#show_menu
+  %ul
+    %li.menu_item= link_to image_tag('/assets/Add.png', :size => '30x30') + "Create an Author", new_author_path, :title => 'Create Author'
+    %li.menu_item= link_to image_tag('/assets/User.png', :size => '30x30') + "View the Articles", articles_path , :title => 'View all of the articles on this site'
 %h1 Listing authors
 %table
   %tr
@@ -11,5 +19,3 @@
       %td= link_to 'Show', author
       %td= link_to 'Edit', edit_author_path(author)
       %td= link_to 'Destroy', author, confirm: 'Are you sure?', method: :delete
-%br/
-= link_to 'New Author', new_author_path

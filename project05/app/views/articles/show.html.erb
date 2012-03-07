@@ -15,7 +15,7 @@
 
 <h1><%= @article.title %></h1>
 
-<p>By <%= @article.author %>. <%= pluralize(@article.num_updates, "edit") %> since <%= @article.created_at.strftime("%b %d, %Y")%></p>
+<p>By <%= @article.author.name %>. <%= pluralize(@article.num_updates, "edit") %> since <%= @article.created_at.strftime("%b %d, %Y")%></p>
 
 <% @article.content.each_line do |line| %>
 <p class="body_paragraph"><%= line.chomp %></p>

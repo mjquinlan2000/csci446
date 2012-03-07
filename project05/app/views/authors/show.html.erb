@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @author.name %></h2>
-<%= image_tag @author.photo.url(:small)%>
+<% if @author.photo? %>
+	<%= image_tag @author.photo.url(:small)%>
+<% end %>
 <p><%=  %></p>
 
 <%if @author.articles.count > 0 %>

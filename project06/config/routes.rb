@@ -1,4 +1,6 @@
 Gamez::Application.routes.draw do
+  get "login/show"
+
   resources :users
 
   resources :games

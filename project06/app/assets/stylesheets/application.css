@@ -17,3 +17,7 @@ h1#application_title {
 	text-align:center;
 	font-size:1.3cm;
 }
+
+p#login_header {
+	text-align:right;
+}

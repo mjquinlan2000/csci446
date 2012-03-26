@@ -7,8 +7,9 @@
     = csrf_meta_tags
   %body
     %p#login_header 
-      = link_to 'Login', login_show_path
+      = link_to 'Login', login_path 
       or
       = link_to 'Register', new_user_path
-    %h1#application_title Gamez
+    %h1#application_title
+      = link_to 'Gamez', games_path
     = yield

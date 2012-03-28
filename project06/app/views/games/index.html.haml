@@ -1,17 +1,12 @@
-%h1 Listing games
-%table
-  %tr
-    %th Title
-    %th Rating
-    %th
-    %th
-    %th
-  - @games.each do |game|
+%table#game_table
+  %thead#game_table_head
     %tr
-      %td= game.title
-      %td= game.rating
-      %td= link_to 'Show', game
-      %td= link_to 'Edit', edit_game_path(game)
-      %td= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete
-%br/
-= link_to 'New Game', new_game_path
+      %th Title
+      %th Rating
+      %th Added
+  %tbody#game_table_body
+    - @games.each do |game|
+      %tr
+        %td= game.title
+        %td= game.rating
+        %td= game.created_at

@@ -1,3 +1,4 @@
+= will_paginate @games, :class => "paginator"
 %table#game_table
   %thead#game_table_head
     %tr
@@ -6,7 +7,8 @@
       %th Added
   %tbody#game_table_body
     - @games.each do |game|
-      %tr
+      %tr{:class => cycle('even_row', 'odd_row')}
         %td= game.title
         %td= game.rating
         %td= game.created_at
+= will_paginate @games, :class => "paginator"

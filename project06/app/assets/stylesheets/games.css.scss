@@ -8,4 +8,25 @@ table#game_table {
   border-style:solid;
   border-width:2px;
   border-color:black;
+  border-collapse:collapse;
+  th, td {
+    border-right:solid;
+    border-left:solid;
+    border-width:2px;
+    border-color:black;
+  }
+  th {
+    background-color:#3366cc;
+    color:white;
+  }
+  tr.odd_row {
+    background-color:#e0f0ff;
+  }
+  tr.even_row {
+    background-color:white;
+  }
+}
+
+.paginator {
+  text-align:center;
 }

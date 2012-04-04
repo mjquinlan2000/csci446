@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404044648) do
+ActiveRecord::Schema.define(:version => 20120404051829) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20120404044648) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(:version => 20120404044648) do
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "admin",                  :default => false, :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

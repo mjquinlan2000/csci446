@@ -8,6 +8,11 @@
 </head>
 <body>
 <h1 id="application_title">Gamez</h1>
+<% if current_user %>
+	<p>Welcome <%= current_user.first_name %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
+<% else %>
+	<p><%= link_to "Sign in", new_user_session_path %> | <%= link_to "Register", new_user_registration_path %></p>
+<% end %>
 <%= yield %>
 
 </body>

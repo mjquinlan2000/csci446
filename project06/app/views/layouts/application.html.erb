@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<div><%= link_to "Register", new_user_path%> | <%= link_to "Sign in", login_path %></div>
+	<div id="user_nav">
+		<% if current_user %>
+			Hello, 
+			<%= current_user.first_name %>
+			<%= link_to "Edit Profile", edit_user_path(:current) %> |
+			<%= link_to "Log Out", logout_path %>
+		<% else %>
+			<%= link_to "Register", new_user_path%> | 
+			<%= link_to "Sign in", login_path %>
+		<% end %>
+	</div>
   <title>Gamez</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>

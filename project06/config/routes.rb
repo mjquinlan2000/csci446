@@ -6,7 +6,7 @@ Gamez::Application.routes.draw do
   resources :games
 
   get "login", :controller => "user_sessions", :action => "new"
-  delete "logout", :controller => "user_sessions", :action => "destroy"
+  get "logout", :controller => "user_sessions", :action => "destroy"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

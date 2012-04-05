@@ -44,8 +44,8 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_to @user_session, notice: 'User session was successfully created.' }
-        format.json { render json: @user_session, status: :created, location: @user_session }
+        format.html { redirect_to root_url, notice: 'Successfully logged in' }
+        format.json { render json: root_url, status: :created, location: @user_session }
       else
         format.html { render action: "new" }
         format.json { render json: @user_session.errors, status: :unprocessable_entity }
@@ -72,11 +72,11 @@ class UserSessionsController < ApplicationController
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.json
   def destroy
-    @user_session = UserSession.find(params[:id])
+    @user_session = UserSession.find
     @user_session.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_sessions_url }
+      format.html { redirect_to root_url, notice: 'Successfully logged out' }
       format.json { head :no_content }
     end
   end

@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<div id="user_nav">
-		<% if current_user %>
-			Hello, 
-			<%= current_user.first_name %>
-			<%= link_to "Edit Profile", edit_user_path(:current) %> |
-			<%= link_to "Log Out", logout_path %>
-		<% else %>
-			<%= link_to "Register", new_user_path%> | 
-			<%= link_to "Sign in", login_path %>
-		<% end %>
-	</div>
+	
   <title>Gamez</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= yield :stylesheet_links %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1 id="application_title">Gamez</h1>
+<div id="user_nav">
+	<% if current_user %>
+		Hello, 
+		<%= current_user.first_name %>
+		<%= link_to "Edit Profile", edit_user_path(:current) %> |
+		<%= link_to "Log Out", logout_path %>
+	<% else %>
+		<%= link_to "Register", new_user_path%> | 
+		<%= link_to "Sign in", login_path %>
+	<% end %>
+</div>
+<h1 id="application_title"><%= link_to "Gamez", root_url %></h1>
 <%= yield %>
 
 </body>

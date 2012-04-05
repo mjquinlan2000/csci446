@@ -1,26 +1,24 @@
-<p id="notice"><%= notice %></p>
-<h1>Listing games</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Rating</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @games.each do |game| %>
-  <tr>
-    <td><%= game.title %></td>
-    <td><%= game.rating %></td>
-    <td><%= link_to 'Show', game %></td>
-    <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= link_to 'Destroy', game, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% content_for :stylesheet_links do %>
+	<%= stylesheet_link_tag "games", :media => "all" %>
+	<%= stylesheet_link_tag "shared", :media => "all" %>
 <% end %>
+<p id="notice"><%= notice %></p>
+
+<table class="pretty_table">
+	<thead>
+	  <tr>
+	    <th>Title</th>
+	    <th>Rating</th>
+	    <th>Added</th>
+	  </tr>
+	</thead>
+	<tbody>
+		<% @games.each do |game| %>
+		  <tr class="<%= cycle("odd_row", "even_row")%>">
+		    <td><%= game.title %></td>
+		    <td><%= game.rating %></td>
+		    <td><%= game.created_at %></td>
+		  </tr>
+		<% end %>
+	</tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Game', new_game_path %>

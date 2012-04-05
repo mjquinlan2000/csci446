@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   
   validates :first_name, :username, :last_name, :email, :presence => true
   validates :username, :email, :uniqueness => true
+  validates :username, :length => {:within => 6..15 }
 end

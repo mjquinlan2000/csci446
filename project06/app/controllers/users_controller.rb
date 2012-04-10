@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if @user.save
+      if verify_recaptcha(:model => @user, :message => "The words and the iamge do not match") and @user.save
         format.html { redirect_to root_url, notice: "User #{@user.username} has been successfully created" }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if verify_recaptcha(:model => @user, :message => "The words and the image do not match") and @user.update_attributes(params[:user])
         format.html { redirect_to root_url, notice: 'You have successfully updated your profile' }
         format.json { head :no_content }
       else

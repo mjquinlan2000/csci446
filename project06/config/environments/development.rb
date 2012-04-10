@@ -34,4 +34,7 @@ Gamez::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  ENV['RECAPTCHA_PUBLIC_KEY'] = '6LdvCNASAAAAAJWbKbXLB4cPlJaaowyxQCwIMk19'
+  ENV['RECAPTCHA_PRIVATE_KEY'] = '6LdvCNASAAAAAILsG_INCqg_fgLRXQk48KK9yeGX'
 end

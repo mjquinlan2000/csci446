@@ -35,6 +35,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <div>
+  	<%= f.label :photo, "Upload a file (less than 5MB)"%>
+  	<%= f.file_field :photo %>
+  </div>
+  <div>
+  	<%= recaptcha_tags %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

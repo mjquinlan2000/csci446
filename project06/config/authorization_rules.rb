@@ -7,13 +7,13 @@ authorization do
     has_permission_on :games, :to => [:show, :index]
   end
   
-  role :user do
+  role :regular do
     has_permission_on :games, :to => [:show, :create, :new, :index]
     has_permission_on :games, :to => [:update, :destroy, :edit] do
-      if_attribute :user => is { user }
+      if_attribute :roles => is { user }
     end
     has_permission_on :users, :to => [:show, :edit, :update] do
-      if_attribute :user => is { user }
+      if_attribute :roles => is { user }
     end
   end
 end

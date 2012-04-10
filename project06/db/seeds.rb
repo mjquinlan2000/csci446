@@ -8,8 +8,9 @@
 
 User.destroy_all
 Game.destroy_all
+Role.destroy_all
 
-user_role = Role.find_or_create_by_role("User")
+user_role = Role.find_or_create_by_role("Regular")
 admin_role = Role.find_or_create_by_role("Admin")
 Role.find_or_create_by_role("Guest")
 
@@ -24,7 +25,7 @@ end
 
 User.all.each do |user|
   (1..3).each do |j|
-    Game.create(:title => "Game#{j*j}", :rating => j%5, :user_id => user.id)
+    Game.create(:title => "Game#{j*user.id}", :rating => j%5, :user_id => user.id)
   end
 end
 

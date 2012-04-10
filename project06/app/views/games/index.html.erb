@@ -3,6 +3,9 @@
 	<%= stylesheet_link_tag "shared", :media => "all" %>
 <% end %>
 <p id="notice"><%= notice %></p>
+<% if flash[:error] %>
+	<p class="flash_error"><%= flash[:error]%></p>
+<% end %>
 <%= will_paginate @users, :class => "paginator"%>
 <table class="pretty_table">
 	<thead>
@@ -10,6 +13,7 @@
 	    <th>Title</th>
 	    <th>Rating</th>
 	    <th>Added</th>
+	    <th>Added By</th>
 	  </tr>
 	</thead>
 	<tbody>
@@ -18,6 +22,7 @@
 		    <td><%= game.title %></td>
 		    <td><%= game.rating %></td>
 		    <td><%= game.created_at %></td>
+		    <td><%= game.user.username %></td>
 		  </tr>
 		<% end %>
 	</tbody>

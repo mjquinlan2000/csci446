@@ -1,6 +1,10 @@
+<% content_for :stylesheet_links do %>
+	<%= stylesheet_link_tag "users", :media => "all" %>
+	<%= stylesheet_link_tag "shared", :media => "all" %>
+<% end %>
 <h1>Listing users</h1>
 
-<table>
+<table class="pretty_table">
   <tr>
     <th>Username</th>
     <th>Email</th>
@@ -13,7 +17,7 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
+  <tr class="<%= cycle("even_row", "odd_row")%>">
     <td><%= user.username %></td>
     <td><%= user.email %></td>
     <td><%= user.first_name %></td>

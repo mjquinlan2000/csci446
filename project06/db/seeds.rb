@@ -11,6 +11,7 @@ Game.destroy_all
 
 user_role = Role.find_or_create_by_role("User")
 admin_role = Role.find_or_create_by_role("Admin")
+Role.find_or_create_by_role("Guest")
 
 (1..10).each do |i|
   user = User.new(:email => "user#{i}@somewhere.com", :first_name => "First", :last_name => "Last", :password => "secret#{i}",

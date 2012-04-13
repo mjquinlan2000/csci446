@@ -15,8 +15,19 @@
   %tbody
     - @games.each do |game|
       %tr{:class => cycle("odd_row", "even_row")}
-        %td= game.title
+        %td
+          - if permitted_to? :edit, game
+            = link_to game.title, edit_game_path(game)
+          - else
+            = game.title
         %td= game.rating
         %td= game.created_at
-        %td= game.user.username
+        %td
+          - if current_user and game.user.username == current_user.username
+            = link_to "me", current_user
+          - else
+            -if permitted_to? :edit, game.user
+              = link_to game.user.username, edit_user_path(game.user)
+            - else
+              = game.user.username
 = will_paginate @users, :class => "paginator"

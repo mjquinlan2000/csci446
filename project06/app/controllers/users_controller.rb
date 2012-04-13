@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all(:include => :roles)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   # POST /users

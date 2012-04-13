@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = current_user
+    @user = User.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = current_user
+    @user = User.find(params[:id])
 
     respond_to do |format|
       if verify_recaptcha(:model => @user, :message => "The words and the image do not match") and @user.update_attributes(params[:user])

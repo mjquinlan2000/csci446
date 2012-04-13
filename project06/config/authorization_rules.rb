@@ -1,6 +1,6 @@
 authorization do
   role :admin do
-    has_permission_on [:users, :games], :to => [:show, :edit, :create, :destroy, :index, :new, :update]
+    has_permission_on [:users, :games, :roles], :to => [:show, :edit, :create, :destroy, :index, :new, :update]
   end
   
   role :guest do

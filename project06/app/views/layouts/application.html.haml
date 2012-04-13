@@ -17,7 +17,10 @@
         |
         \#{link_to "Add a new game", new_game_path}
         - if permitted_to? :index, :users
-          | #{link_to "Show all Users", users_path}
+          |
+          \#{link_to "Show all Users", users_path}
+          |
+          \#{link_to "Roles", roles_path}
       - else
         = link_to "Register", new_user_path
         |

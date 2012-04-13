@@ -1,4 +1,6 @@
 Gamez::Application.routes.draw do
+  get "roles", :controller => "roles", :action => "index"
+
   resources :user_sessions, :only => [:new, :destroy, :create]
 
   resources :users

@@ -1,12 +1,11 @@
 authorization do
   role :admin do
-    has_permission_on [:users, :games, :user_sessions], :to => [:show, :edit, :create, :destroy, :index, :new, :update]
+    has_permission_on [:users, :games], :to => [:show, :edit, :create, :destroy, :index, :new, :update]
   end
   
   role :guest do
     has_permission_on :games, :to => [:show, :index]
     has_permission_on :users, :to => [:new, :create]
-    has_permission_on :user_sessions, :to => [:create, :new]
   end
   
   role :regular do
@@ -15,8 +14,7 @@ authorization do
       if_attribute :user => is { user }
     end
     has_permission_on :users, :to => [:show, :edit, :update] do
-      if_attribute :user => is { user }
+      if_attribute :id => is { user.id }
     end
-    has_permission_on :user_sessions, :to => :destory
   end
 end

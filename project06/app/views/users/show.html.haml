@@ -1,0 +1,40 @@
+- content_for :stylesheet_links do
+  = stylesheet_link_tag "shared", :media => "all"
+  = stylesheet_link_tag "users", :media => "all"
+%p#notice= notice
+%h1
+  = @user.username
+  's profile
+- if @user.photo.file?
+  = image_tag @user.photo.url(:small)
+- else
+  %h2
+    No photo, Please
+    \#{link_to "Update", edit_user_path(@user)}
+    your profile
+%p
+  First Name: #{@user.first_name}
+%p
+  Last Name: #{@user.last_name}
+%p
+  E-mail: #{@user.email}
+- if @user.games.count > 0
+  %h3 Games added by you
+  %table.pretty_table
+    %thead
+      %tr
+        %th Title
+        %th Rating
+        %th Added
+    %tbody
+      - @user.games.each do |game|
+        %tr{:class => cycle("even_row", "odd_row")}
+          %td= game.title
+          %td= game.rating
+          %td= game.created_at
+- else
+  %h3 You have added no games
+  %p= link_to "Add some games!", new_game_path
+= link_to 'Edit', edit_user_path(@user)
+|
+\#{link_to 'Back', root_url}

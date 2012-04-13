@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title Gamez
+    = stylesheet_link_tag    "application", :media => "all"
+    = yield :stylesheet_links
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #user_nav
+      - if current_user
+        Hello,
+        \#{current_user.first_name}
+        \#{link_to "View Profile", current_user} |
+        \#{link_to "Log Out", logout_path} |
+        \#{link_to "Add a new game", new_game_path}
+        - if permitted_to? :index, :users
+          | #{link_to "Show all Users", users_path}
+      - else
+        = link_to "Register", new_user_path
+        |
+        \#{link_to "Sign in", login_path}
+    %h1#application_title= link_to "Gamez", root_url
+    = yield

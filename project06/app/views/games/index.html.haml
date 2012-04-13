@@ -1,0 +1,22 @@
+- content_for :stylesheet_links do
+  = stylesheet_link_tag "games", :media => "all"
+  = stylesheet_link_tag "shared", :media => "all"
+%p#notice= notice
+- if flash[:error]
+  %p.flash_error= flash[:error]
+= will_paginate @users, :class => "paginator"
+%table.pretty_table
+  %thead
+    %tr
+      %th Title
+      %th Rating
+      %th Added
+      %th Added By
+  %tbody
+    - @games.each do |game|
+      %tr{:class => cycle("odd_row", "even_row")}
+        %td= game.title
+        %td= game.rating
+        %td= game.created_at
+        %td= game.user.username
+= will_paginate @users, :class => "paginator"

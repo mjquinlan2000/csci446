@@ -42,6 +42,7 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(params[:game])
+    @game.user = current_user
 
     respond_to do |format|
       if @game.save

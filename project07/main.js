@@ -1,5 +1,6 @@
 var guessesLeft = 10;
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
+var secret_number = Math.floor(Math.random()*101);
 
 $(function() {
   updateScore(guessesLeft);
@@ -13,5 +14,5 @@ function populateHighScores(scores) {
 }
 
 function updateScore(score) {
-  $('h2#score span#guessesLeft').append(score);
+  $('h2#score span#guessesLeft').text(score);
 }

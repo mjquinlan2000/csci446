@@ -19,16 +19,12 @@ function updateScore(score) {
 
 $(document).ready(function(){
 	$('form#guessTheNumber input#btnGuess').click(function(){
-		if($('form#guessTheNumber input#guess').val() != "")
-		{
-			var user_guess = $('form#guessTheNumber input#guess').val();
-			var reg_exp = new RegExp(/^[0-9]*$/);
-			if(!reg_exp.test(user_geuss))
-			{
-				alert("That is not a valid input");
-				return;
-			}else{
-				alert("That didn't work");
+		if($('form#guessTheNumber input#guess').val() != ""){
+			var user_guess = $('input#guess').val();
+			var rexp = /^\d+$/;
+			user_guess = user_guess.replace(/ /g, "");
+			if(!rexp.test(user_guess) || parseInt(user_guess) < 1 || parseInt(user_guess) > 100){
+				alert("That is not a valid input. Only guess numbers between 1 and 100");
 				return;
 			}
 		}else{

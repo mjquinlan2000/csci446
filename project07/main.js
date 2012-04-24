@@ -14,6 +14,7 @@ $(function() {
 });
 
 function populateHighScores(scores) {
+	$('div#highScores').html("");
   for (var i = 0; i < scores.length; ++i) {
     $('div#highScores').append("<p>" + scores[i][0] + " " + scores[i][1] + "</p>");
   }
@@ -67,6 +68,21 @@ function loserMessage(){
 	}
 }
 
+function gameEnd(){
+	$('h2#score').slideUp();
+	$('form#guessTheNumber').slideUp();
+	$('#user_prompt').slideUp();
+}
+
+function winnerPrompt(){
+	var username;
+	while(username == null || username == ''){
+		username=prompt("What is your username?");
+	}
+	highScores.push([++guessesLeft, username]);
+	populateHighScores(highScores);
+}
+
 $(document).ready(function(){
 	genRandomNum();
 	$('form#guessTheNumber input#btnGuess').click(function(){
@@ -80,17 +96,14 @@ $(document).ready(function(){
 			}else{
 				var int_user_guess = parseInt(user_guess);
 				if(int_user_guess == secret_number){
-					$('h2#score').slideUp();
-					$('form#guessTheNumber').slideUp();
-					$('#user_prompt').slideUp();
+					gameEnd();
 					$('#winner_message').slideDown();
 					timer_id = setInterval(winnerMessage, 100);
+					winnerPrompt();
 				}else{
 					updateScore(--guessesLeft);
 					if(guessesLeft == 0){
-						$('h2#score').slideUp();
-						$('form#guessTheNumber').slideUp();
-						$('#user_prompt').slideUp();
+						gameEnd();
 						$('#loser_message').slideDown();
 						timer_id = setInterval(loserMessage, 500)
 					}else{

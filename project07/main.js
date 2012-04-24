@@ -30,9 +30,16 @@ function genRandomNum(){
 function reset(){
 	$('input#guess').val("");
 	$('#user_prompt').slideUp();
+	$('#loser_message').slideUp();
+	$('#winner_message').slideUp();
+	$('#winner_message').text("");
+	$('#loser_message').text("");
+	$('form#guessTheNumber').slideDown();
+	$('h2#score').slideDown();
 	guessesLeft = 10;
 	updateScore(guessesLeft);
 	genRandomNum();
+	clearInterval(timer_id);
 }
 
 function changeUserPrompt(prompt)
@@ -56,7 +63,7 @@ function loserMessage(){
 	if(message_counter++ < loser_message.length){
 		$('#loser_message').append(loser_message.charAt(message_counter));
 	}else{
-		clearInterval(loserMessage)
+		clearInterval(timer_id)
 	}
 }
 
@@ -73,24 +80,35 @@ $(document).ready(function(){
 			}else{
 				var int_user_guess = parseInt(user_guess);
 				if(int_user_guess == secret_number){
-					$('#')
-					setInterval(winnerMessage, 100);
+					$('h2#score').slideUp();
+					$('form#guessTheNumber').slideUp();
+					$('#user_prompt').slideUp();
+					$('#winner_message').slideDown();
+					timer_id = setInterval(winnerMessage, 100);
 				}else{
-					if(int_user_guess > secret_number){
-						changeUserPrompt("Guess Lower");
-					}else{
-						changeUserPrompt("Guess Higher");
-					}
 					updateScore(--guessesLeft);
 					if(guessesLeft == 0){
+						$('h2#score').slideUp();
+						$('form#guessTheNumber').slideUp();
+						$('#user_prompt').slideUp();
 						$('#loser_message').slideDown();
-						setInterval(loserMessage, 500)
+						timer_id = setInterval(loserMessage, 500)
+					}else{
+						if(int_user_guess > secret_number){
+							changeUserPrompt("Guess Lower");
+						}else{
+							changeUserPrompt("Guess Higher");
+						}
 					}
 				}
 			}
 		}else{
 			alert("You must guess something");
 		}
+	});
+	
+	$('#btn_reset').click(function(){
+		reset();
 	});
 });
 

@@ -47,3 +47,8 @@ form#guessTheNumber {
   border-bottom: 1px solid #000;
   padding: 20px;
 }
+
+div#winner_message, div#loser_message {
+	font-size:10em;
+	text-align:center;
+}

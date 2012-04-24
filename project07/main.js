@@ -1,11 +1,14 @@
 var guessesLeft = 10;
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
 var secret_number;
+var timer_id;
 
 $(function() {
   updateScore(guessesLeft);
   populateHighScores(highScores);
-  $('h2#user_prompt').hide()
+  $('h2#user_prompt').hide();
+  $('#winner_message').hide();
+  $('#loser_message').hide();
 });
 
 function populateHighScores(scores) {
@@ -36,8 +39,15 @@ function changeUserPrompt(prompt)
 	if($('#user_prompt').css("display") == 'none'){
 		$('#user_prompt').slideDown();
 	}else{
-		$('#user_prompt').effect("highlight", {color:"#ff0000"} , 3000);
+		$('#user_prompt').effect("highlight", {color:"#ff0000"} , 700);
 	}
+}
+
+function winnerMessage(){
+	var color1 = 'rgb(' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ')';
+	var color2 = 'rgb(' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ')';
+	$('#winner_message').css('background-color', color1);
+	$('#winner_message').css('color', color2);
 }
 
 $(document).ready(function(){
@@ -53,8 +63,7 @@ $(document).ready(function(){
 			}else{
 				var int_user_guess = parseInt(user_guess);
 				if(int_user_guess == secret_number){
-					alert("YOU WON");
-					reset();
+					
 				}else{
 					if(int_user_guess > secret_number){
 						changeUserPrompt("Guess Lower");

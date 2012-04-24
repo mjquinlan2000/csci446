@@ -21,6 +21,13 @@ h2 span.highScore {
   margin-right: -50px;
 }
 
+#user_prompt {
+	display:inline;
+	margin:5px;
+	padding:5px;
+	background-color:inherit;
+}
+
 h2#score {
   color: #FFC125;
   margin: 0px;

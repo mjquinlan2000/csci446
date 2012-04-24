@@ -5,6 +5,7 @@ var secret_number;
 $(function() {
   updateScore(guessesLeft);
   populateHighScores(highScores);
+  $('h2#user_prompt').hide()
 });
 
 function populateHighScores(scores) {
@@ -23,9 +24,20 @@ function genRandomNum(){
 
 function reset(){
 	$('input#guess').val("");
+	$('#user_prompt').slideUp();
 	guessesLeft = 10;
 	updateScore(guessesLeft);
 	genRandomNum();
+}
+
+function changeUserPrompt(prompt)
+{
+	$('#user_prompt').text(prompt);
+	if($('#user_prompt').css("display") == 'none'){
+		$('#user_prompt').slideDown();
+	}else{
+		$('#user_prompt').effect("highlight", {color:"#ff0000"} , 3000);
+	}
 }
 
 $(document).ready(function(){
@@ -45,9 +57,9 @@ $(document).ready(function(){
 					reset();
 				}else{
 					if(int_user_guess > secret_number){
-						alert("Guess lower");
+						changeUserPrompt("Guess Lower");
 					}else{
-						alert("Guess higher");
+						changeUserPrompt("Guess Higher");
 					}
 					updateScore(--guessesLeft);
 					if(guessesLeft == 0){

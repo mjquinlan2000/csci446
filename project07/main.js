@@ -2,6 +2,8 @@ var guessesLeft = 10;
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
 var secret_number;
 var timer_id;
+var loser_message = 'YOU LOST';
+var message_counter = -1;
 
 $(function() {
   updateScore(guessesLeft);
@@ -50,6 +52,14 @@ function winnerMessage(){
 	$('#winner_message').css('color', color2);
 }
 
+function loserMessage(){
+	if(message_counter++ < loser_message.length){
+		$('#loser_message').append(loser_message.charAt(message_counter));
+	}else{
+		clearInterval(loserMessage)
+	}
+}
+
 $(document).ready(function(){
 	genRandomNum();
 	$('form#guessTheNumber input#btnGuess').click(function(){
@@ -63,7 +73,8 @@ $(document).ready(function(){
 			}else{
 				var int_user_guess = parseInt(user_guess);
 				if(int_user_guess == secret_number){
-					
+					$('#')
+					setInterval(winnerMessage, 100);
 				}else{
 					if(int_user_guess > secret_number){
 						changeUserPrompt("Guess Lower");
@@ -72,8 +83,8 @@ $(document).ready(function(){
 					}
 					updateScore(--guessesLeft);
 					if(guessesLeft == 0){
-						alert("You Lost");
-						reset();
+						$('#loser_message').slideDown();
+						setInterval(loserMessage, 500)
 					}
 				}
 			}

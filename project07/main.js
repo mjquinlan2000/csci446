@@ -20,10 +20,10 @@ function populateHighScores(scores) {
 		url: my_url,
 		dataType: "json",
 		success: function(json){
-		var length = json.length;
-		for(var i = 0; i < length; i++){
-			$('div#highScores').append("<p>" + json[i].score + " " + json[i].name + "</p>");
-		}
+			var length = json.length;
+			for(var i = 0; i < length; i++){
+				$('div#highScores').append("<p>" + json[i].score + " " + json[i].name + "</p>");
+			}
 		}
 	});
 }
@@ -87,7 +87,7 @@ function winnerPrompt(){
 	while(username == null || username == ''){
 		username=prompt("What is your username?");
 	}
-	post_new_score(username, ++)
+	post_new_score(username, ++guessesLeft);
 	populateHighScores(highScores);
 }
 

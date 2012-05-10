@@ -4,6 +4,7 @@ var secret_number;
 var timer_id;
 var loser_message = 'YOU LOST';
 var message_counter = -1;
+var my_url = "http://localhost:3000/scores.json";
 
 $(function() {
   updateScore(guessesLeft);
@@ -15,9 +16,16 @@ $(function() {
 
 function populateHighScores(scores) {
 	$('div#highScores').html("");
-  for (var i = 0; i < scores.length; ++i) {
-    $('div#highScores').append("<p>" + scores[i][0] + " " + scores[i][1] + "</p>");
-  }
+	$.ajax({
+		url: my_url,
+		dataType: "json",
+		success: function(json){
+		var length = json.length;
+		for(var i = 0; i < length; i++){
+			$('div#highScores').append("<p>" + json[i].score + " " + json[i].name + "</p>");
+		}
+		}
+	});
 }
 
 function updateScore(score) {
@@ -79,8 +87,20 @@ function winnerPrompt(){
 	while(username == null || username == ''){
 		username=prompt("What is your username?");
 	}
-	highScores.push([++guessesLeft, username]);
+	post_new_score(username, ++)
 	populateHighScores(highScores);
+}
+
+function post_new_score(name, score){
+	$.ajax({
+		type: "POST",
+		url: my_url,
+		dataType: 'json',
+		data: {score: {name: name, score: score}},
+		success: function(data){
+			alert("Scores posted successfully");
+		}
+	});
 }
 
 function some_callback(json_obj){
@@ -88,22 +108,6 @@ function some_callback(json_obj){
 }
 
 $(document).ready(function(){
-	
-	$.ajax({
-		type: "GET",
-		url: "http://localhost:3000/scores.json",
-		dataType: "json",
-		success: function(){
-			alert("This worked");
-		}
-	});
-	
-	$.get('http://localhost:3000/scores.json',
-		function(){
-			alert("This one worked");
-		},
-		'json'
-	);
 		
 	genRandomNum();
 	$('form#guessTheNumber input#btnGuess').click(function(){

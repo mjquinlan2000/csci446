@@ -84,6 +84,22 @@ function winnerPrompt(){
 }
 
 $(document).ready(function(){
+	
+	$.ajax({
+		type: "GET",
+	 	url: "http://127.0.0.1:3000/scores.json",
+	 	async: false,
+	 	beforeSend: function(x) {
+	  		if(x && x.overrideMimeType) {
+	   			x.overrideMimeType("application/j-son;charset=UTF-8");
+	      	}
+	 	},
+	 	dataType: "json",
+	 	success: function(data){
+	    	$('div#highScores').append(data.toString());
+	 	}
+	});
+		
 	genRandomNum();
 	$('form#guessTheNumber input#btnGuess').click(function(){
 		if($('form#guessTheNumber input#guess').val() != ""){

@@ -83,22 +83,27 @@ function winnerPrompt(){
 	populateHighScores(highScores);
 }
 
+function some_callback(json_obj){
+	alert("this worked");
+}
+
 $(document).ready(function(){
 	
 	$.ajax({
 		type: "GET",
-	 	url: "http://127.0.0.1:3000/scores.json",
-	 	async: false,
-	 	beforeSend: function(x) {
-	  		if(x && x.overrideMimeType) {
-	   			x.overrideMimeType("application/j-son;charset=UTF-8");
-	      	}
-	 	},
-	 	dataType: "json",
-	 	success: function(data){
-	    	$('div#highScores').append(data.toString());
-	 	}
+		url: "http://localhost:3000/scores.json",
+		dataType: "json",
+		success: function(){
+			alert("This worked");
+		}
 	});
+	
+	$.get('http://localhost:3000/scores.json',
+		function(){
+			alert("This one worked");
+		},
+		'json'
+	);
 		
 	genRandomNum();
 	$('form#guessTheNumber input#btnGuess').click(function(){

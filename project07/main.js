@@ -4,7 +4,7 @@ var secret_number;
 var timer_id;
 var loser_message = 'YOU LOST';
 var message_counter = -1;
-var my_url = "http://localhost:3000/scores.json";
+var my_url = "http://guesselnumero.herokuapp.com/scores.json";
 
 $(function() {
   updateScore(guessesLeft);
@@ -96,10 +96,7 @@ function post_new_score(name, score){
 		type: "POST",
 		url: my_url,
 		dataType: 'json',
-		data: {score: {name: name, score: score}},
-		success: function(data){
-			alert("Scores posted successfully");
-		}
+		data: {score: {name: name, score: score}}
 	});
 }
 
